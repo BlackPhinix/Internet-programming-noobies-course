@@ -1,0 +1,53 @@
+<HTML><HEAD><TITLE></TITLE></HEAD>
+<BODY>
+<SCRIPT>
+    function toggleOption(thisselect) {
+        var selected = thisselect.options[thisselect.selectedIndex].value;
+        toggleRow(selected);
+    }
+
+    function toggleRow(id) {
+      var row = document.getElementById(id);
+      if (row.style.display == '') {
+        row.style.display = 'none';
+      }
+      else {
+         row.style.display = '';
+      }
+    }
+
+    function showRow(id) {
+      var row = document.getElementById(id);
+      row.style.display = '';
+    }
+
+    function hideRow(id) {
+      var row = document.getElementById(id);
+      row.style.display = 'none';
+    }
+
+    function hideAll() {
+     hideRow('optionA');
+     hideRow('optionB');
+     hideRow('optionC');
+     hideRow('optionD');
+   }
+
+</SCRIPT>
+
+<SELECT id="options" onchange="toggleOption(this)">
+    <OPTION value="optionA">Toggle Display A</OPTION>
+    <OPTION value="optionB">Toggle Display B</OPTION>
+    <OPTION value="optionC">Toggle Display C</OPTION>
+    <OPTION value="optionD">Toggle Display D</OPTION>
+</SELECT>
+
+<TABLE style="border:1px">
+    <TR id="optionA"><TD>A</TD><TD>reselect to hide</TD></TR>
+    <TR id="optionB"><TD>B</TD><TD>reselect to hide</TD></TR>
+    <TR id="optionC"><TD>C</TD><TD>reselect to hide</TD></TR>
+    <TR id="optionD"><TD>D</TD><TD>reselect to hide</TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>
