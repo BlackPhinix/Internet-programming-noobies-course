@@ -3,12 +3,25 @@
 
 <head>
     <title>forms</title>
+    <script>
+        function validateEmail(emailId) {
+            var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (emailId.value.match(mailformat)) {
+                document.form1.text1.focus();
+                return true;
+            } else {
+                alert("Invalid email address.");
+                document.form1.text1.focus();
+                return false;
+            }
+        }
+    </script>
 </head>
 
 <body>
     <form action="placeholder" type="text">
         <fieldset style="width: 500px;">
-            <legend>Regestration</legend>
+            <legend>Regestration Form:</legend>
 
     </form>
 
@@ -16,18 +29,18 @@
     <label for="name">Lastname</label><br>
     <input type="text" name="name" id="name" placeholder="Enter First name" required> &nbsp; &nbsp; &nbsp;
     <input type="text" name="name" id="name" placeholder="Enter Last name" required><br><br><br>
-    <label for="Gender">Gender</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <label for="Gender">Gender</label> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     <label for="date">Birthdate</label><br>
-    <label for="name male">male</label>
-    <input type="radio" placeholder="male" name="name male">
-    <label for="name female">female</label>
-    <input type="radio" placeholder="female" name="name female"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <input type="radio" placeholder="male" name="Gender">
+    <label for="name male">Male</label>&nbsp; &nbsp;
+    <input type="radio" placeholder="female" name="Gender">
+    <label for="name female">Female</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 
-    <input type="date" style="width: 140px;">
+    <input type="date" style="width: 170px;" required>
     <br><br><br>
     <label for="email">Email Address</label><br>
-    <input type="email" style="width: 380px;">
+    <input type="email" name="email" placeholder="Enter email" style="width: 380px;" required>
     <br>
     <br>
     <label for="dropdown">Select User type</label><br>
