@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>forms</title>
+    <script>
+        function validateEmail(emailId) {
+            var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (emailId.value.match(mailformat)) {
+                document.form1.text1.focus();
+                return true;
+            } else {
+                alert("Invalid email address.");
+                document.form1.text1.focus();
+                return false;
+            }
+        }
+
+        function Validate() {
+            var password = document.getElementById("txtPassword").value;
+            var confirmPassword = document.getElementById("txtConfirmPassword").value;
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <form action="placeholder" type="text">
+        <fieldset style="width: 500px;">
+            <legend>Regestration Form:</legend>
+
+    </form>
+
+    <label for="name">First name</label> &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="name">Lastname</label><br>
+    <input type="text" name="name" id="name" placeholder="Enter First name" required> &nbsp; &nbsp; &nbsp;
+    <input type="text" name="name" id="name" placeholder="Enter Last name" required><br><br><br>
+    <label for="Gender">Gender</label> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <label for="date">Birthdate</label><br>
+    <input type="radio" placeholder="male" name="Gender">
+    <label for="name male">Male</label>&nbsp; &nbsp;
+    <input type="radio" placeholder="female" name="Gender">
+    <label for="name female">Female</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+    <input type="date" style="width: 170px;" required>
+    <br><br><br>
+    <label for="email">Email Address</label><br>
+    <input type="email" name="email" placeholder="Enter email" style="width: 380px;" required>
+    <br>
+    <br>
+    <label for="dropdown">Select User type</label><br>
+    <select name="dropdown" style="width: 390px;">
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+        </select><br><br>
+
+    <label for="password">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+
+    <label for="password">Confirm Password</label><br>
+    <input type="password" placeholder="password" id="txtPassword" style="width: 170px;" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <input type="password" placeholder="confirm password" id="txtConfirmPassword" style="width: 170px;" required><br><br>
+    <label for="comment">Comment</label><br>
+    <textarea name="comment" rows="5" cols="50"></textarea><br>
+    <input type="submit" value="Regester" onclick="return Validate()" style="width: 390px;">
+    </fieldset>
+</body>
+
+</html>
