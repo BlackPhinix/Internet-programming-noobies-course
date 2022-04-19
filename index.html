@@ -15,6 +15,16 @@
                 return false;
             }
         }
+
+        function Validate() {
+            var password = document.getElementById("txtPassword").value;
+            var confirmPassword = document.getElementById("txtConfirmPassword").value;
+            if (password != confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
     </script>
 </head>
 
@@ -52,12 +62,12 @@
     <label for="password">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
 
     <label for="password">Confirm Password</label><br>
-    <input type="password" placeholder="password" style="width: 170px;" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="password" placeholder="password" id="txtPassword" style="width: 170px;" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <input type="password" placeholder="confirm password" style="width: 170px;" required><br><br>
+    <input type="password" placeholder="confirm password" id="txtConfirmPassword" style="width: 170px;" required><br><br>
     <label for="comment">Comment</label><br>
     <textarea name="comment" rows="5" cols="50"></textarea><br>
-    <input type="submit" value="Regester" style="width: 390px;">
+    <input type="submit" value="Regester" onclick="return Validate()" style="width: 390px;">
     </fieldset>
 </body>
 
